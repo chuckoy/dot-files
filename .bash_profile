@@ -42,7 +42,6 @@ BLINK=$(tput blink)
 REVERSE=$(tput smso)
 UNDERLINE=$(tput smul)
 
-
 # define where virtual envs are being stored (for workon) 
 WORKON_HOME=$HOME/.virtualenvs
 
@@ -60,6 +59,8 @@ PIP_RESPECT_VIRTUALENV=true
         echo "WARNING: Can't find virtualenvwrapper.sh"
     fi
 
+# Xref env vars
+export PYTHONPATH=~/Work/django-xreflib
 
 # define aliases
 
