@@ -1,0 +1,7 @@
+# ignore everything
+*
+
+# don't ignore these files
+!.gitignore
+!.bash_profile
+!.vimrc
