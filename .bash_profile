@@ -51,6 +51,9 @@ VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 # use the same directory for virtualenvs as virtualenvwrapper
 PIP_VIRTUALENV_BASE=$WORKON_HOME
 
+# prevent pip from installing to global site-packages
+PIP_REQUIRE_VIRTUALENV=true
+
 # makes pip detect an active virtualenv and install to it
 PIP_RESPECT_VIRTUALENV=true
     if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
