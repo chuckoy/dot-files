@@ -69,6 +69,7 @@ export PYTHONPATH=~/Work/django-xreflib
 
 # general aliases
 alias g="python manage.py runserver"
+alias whatip="curl canhazip.com"
 
 # git aliases
 alias idgaf="git push --force"
