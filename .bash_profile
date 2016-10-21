@@ -85,6 +85,10 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias finder="open -a Finder ./"
 alias printxrefenv="printenv | grep XREF"
+alias ll='ls -FGlAhp'
+cd() { builtin cd "$@"; ll; } 
+
 
 # set the prefix of every prompt
 PS1='\[${MAGENTA}\]${venv} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}") \[${GREEN}\]>\[\033[0m\] '
+
