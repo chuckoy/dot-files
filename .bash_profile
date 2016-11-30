@@ -19,10 +19,10 @@ GIT_PS1_SHOWUPSTREAM="auto"
 if [[ $VIRTUAL_ENV != "" ]]
     then
       # Strip out the path and just leave the env name
-      venv="(${VIRTUAL_ENV##*/})"
+      VENV="(${VIRTUAL_ENV##*/})"
 else
       # In case you don't have one activated
-      venv=''
+      VENV=''
 fi
 
 # define colors
@@ -63,7 +63,7 @@ PIP_RESPECT_VIRTUALENV=true
     fi
 
 # Xref env vars
-export PYTHONPATH=~/Work/django-xreflib
+export PYTHONPATH=~/Work/django-xreflib:~/Work/django-xrefemail
 
 # define aliases
 
@@ -90,5 +90,5 @@ cd() { builtin cd "$@"; ll; }
 
 
 # set the prefix of every prompt
-PS1='\[${MAGENTA}\]${venv} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}") \[${GREEN}\]>\[\033[0m\] '
+PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}") \[${GREEN}\]>\[\033[0m\] '
 
