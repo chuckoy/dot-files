@@ -79,6 +79,7 @@ alias gd="git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r"
 alias gl="git log"
 alias gri="git rebase -i"
 alias gt="git log --graph --oneline --decorate"
+alias gcam="git commit -a -m"
 
 # mac convenience aliases
 alias cp="cp -iv"
