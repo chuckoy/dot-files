@@ -77,9 +77,10 @@ alias up="git pull --rebase --prune $@ && git submodule update --init --recursiv
 alias gs="git status"
 alias gd="git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r"
 alias gl="git log"
-alias gri="git rebase -i"
+alias gri="git rebase --interactive"
 alias gt="git log --graph --oneline --decorate"
-alias gcam="git commit -a -m"
+alias gcam="git commit --all -m"
+alias gcp="git commit --patch"
 
 # mac convenience aliases
 alias cp="cp -iv"
@@ -87,7 +88,7 @@ alias mv="mv -iv"
 alias finder="open -a Finder ./"
 alias printxrefenv="printenv | grep XREF"
 alias ll='ls -FGlAhp'
-cd() { builtin cd "$@"; ll; } 
+cd() { builtin cd "$@"; ll; }
 
 
 # set the prefix of every prompt
