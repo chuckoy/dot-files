@@ -71,16 +71,21 @@ export PYTHONPATH=~/Work/django-xreflib:~/Work/django-xrefemail
 alias g="python manage.py runserver"
 alias whatip="curl canhazip.com"
 
-# git aliases
-alias idgaf="git push --force"
-alias up="git pull --rebase --prune $@ && git submodule update --init --recursive" 
-alias gs="git status"
-alias gd="git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r"
-alias gl="git log"
-alias gri="git rebase --interactive"
-alias gt="git log --graph --oneline --decorate"
-alias gcam="git commit --all -m"
-alias gcp="git commit --patch"
+# git functions
+function idgaf () { git push --force; }
+function up () { git pull --rebase --prune $@ && git submodule update --init --recursive; }
+function gs () { git status; }
+function gd () { git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r; }
+function gl () { git log; }
+function gri () { git rebase --interactive; }
+function gt () { git log --graph --oneline --decorate; }
+function gcam () { git commit --all -m $1; }
+function gcp () { git commit --patch; }
+git_clean_branches ()
+{
+    current_branch=$(git name-rev --name-only HEAD)
+    git branch --merged ${current_branch} | grep -Ev "\* ${current_branch}|master|test|develop" | xargs -n 1 git branch -d;
+}
 
 # mac convenience aliases
 alias cp="cp -iv"
