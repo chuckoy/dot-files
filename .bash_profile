@@ -84,6 +84,7 @@ function gcp () { git commit --patch; }
 git_clean_branches ()
 {
     current_branch=$(git name-rev --name-only HEAD)
+    git pull;
     git branch --merged ${current_branch} | grep -Ev "\* ${current_branch}|master|test|develop" | xargs -n 1 git branch -d;
 }
 
