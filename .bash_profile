@@ -75,8 +75,8 @@ alias whatip="curl canhazip.com"
 function idgaf () { git push --force; }
 function up () { git pull --rebase --prune $@ && git submodule update --init --recursive; }
 function gs () { git status; }
-function gd () { git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r; }
-function gl () { git log; }
+alias gd="git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r"
+function gl () { git log "$1"; }
 function gri () { git rebase --interactive; }
 function gt () { git log --graph --oneline --decorate; }
 function gcam () { git commit --all -m "$1"; }
