@@ -82,7 +82,9 @@ alias gd="git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r"
 function gl () { git log "$1"; }
 function gri () { git rebase --interactive; }
 function gt () { git log --graph --oneline --decorate; }
+function ga () { git add "$1"; }
 function gcam () { git commit --all -m "$1"; }
+function gcm () { git commit -m "$1"; }
 function gcp () { git commit --patch; }
 git_clean_branches ()
 {
