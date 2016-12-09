@@ -70,6 +70,9 @@ export PYTHONPATH=~/Work/django-xreflib:~/Work/django-xrefemail
 # general aliases
 alias g="python manage.py runserver"
 alias whatip="curl canhazip.com"
+function vb () { vim ~/.bash_profile; }
+function vv () { vim ~/.vimrc; }
+function sb () { source ~/.bash_profile; }
 
 # git functions
 function idgaf () { git push --force; }
