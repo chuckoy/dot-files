@@ -80,7 +80,7 @@ function up () { git pull --rebase --prune $@ && git submodule update --init --r
 function gs () { git status; }
 alias gd="git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r"
 function gl () { git log "$1"; }
-function gri () { git rebase --interactive; }
+function gri () { git rebase --interactive "$1"; }
 function gt () { git log --graph --oneline --decorate; }
 function ga () { git add "$1"; }
 function gcam () { git commit --all -m "$1"; }
