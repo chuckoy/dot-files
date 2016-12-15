@@ -29,3 +29,4 @@ set hlsearch " highlight search terms
 set ruler " ruler at bottom for row column position
 syntax on " syntax highlighting on
 set cul " underline current line
+set fileformat=unix " carriage returns are annoying
