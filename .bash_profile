@@ -101,6 +101,8 @@ alias printxrefenv="printenv | grep XREF"
 alias ll='ls -FGlAhp'
 cd() { builtin cd "$@"; ll; }
 
+# xref aliases
+alias publish_xreflib="python setup.py sdist && python setup.py publish && python setup.py tag"
 
 # set the prefix of every prompt
 PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}") \[${GREEN}\]>\[\033[0m\] '
