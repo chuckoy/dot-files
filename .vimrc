@@ -16,6 +16,10 @@ map <C-l> <C-W>l
 set splitright
 set splitbelow
 
+" One line buffer when scrolling
+set scrolloff=1
+set display+=lastline
+
 "
 " Misc Settings
 "
