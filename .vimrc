@@ -12,10 +12,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Easier deletion of enclosing elements
-map <C-[> di[va[p
-map <C-(> di(va(p
-
 " Right handed splitting
 set splitright
 set splitbelow
