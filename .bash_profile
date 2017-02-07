@@ -52,7 +52,7 @@ VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 # prevent pip from installing to global site-packages
-export PIP_REQUIRE_VIRTUALENV=true
+# export PIP_REQUIRE_VIRTUALENV=true
 
 # makes pip detect an active virtualenv and install to it
 PIP_RESPECT_VIRTUALENV=true
@@ -86,6 +86,9 @@ function ga () { git add $1; }
 function gcam () { git commit --all -m "$1"; }
 function gcm () { git commit -m "$1"; }
 function gcp () { git commit --patch; }
+function gcpc () { git cherry-pick --continue; }
+function grc () { git rebase --continue; }
+function gb () { git branch; }
 git_clean_branches ()
 {
     current_branch=$(git name-rev --name-only HEAD)
