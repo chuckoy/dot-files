@@ -25,23 +25,6 @@ else
       VENV=''
 fi
 
-# define colors
-BLACK=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-LIME_YELLOW=$(tput setaf 190)
-POWDER_BLUE=$(tput setaf 153)
-BLUE=$(tput setaf 4)
-MAGENTA=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-BRIGHT=$(tput bold)
-NORMAL=$(tput sgr0)
-BLINK=$(tput blink)
-REVERSE=$(tput smso)
-UNDERLINE=$(tput smul)
-
 # define where virtual envs are being stored (for workon) 
 WORKON_HOME=$HOME/.virtualenvs
 
@@ -107,6 +90,22 @@ cd() { builtin cd "$@"; ll; }
 # xref aliases
 alias publish_xreflib="python setup.py sdist && python setup.py publish && python setup.py tag"
 
-# set the prefix of every prompt
-PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}") \[${GREEN}\]>\[\033[0m\] '
+# define colors
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+LIME_YELLOW=$(tput setaf 190)
+POWDER_BLUE=$(tput setaf 153)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+BRIGHT=$(tput bold)
+NORMAL=$(tput sgr0)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
 
+# set the prefix of every prompt
+PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}") \n\[${POWDER_BLUE}\]$(date +%H:%M:%S) \[${GREEN}\]❯\[\033[0;0m\] '
