@@ -56,6 +56,7 @@ alias whatip="curl canhazip.com"
 function vb () { vim ~/.bash_profile; }
 function vv () { vim ~/.vimrc; }
 function sb () { source ~/.bash_profile; }
+alias zappashell='docker run -ti -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION -v $(pwd):/var/task  --rm zappa bash'
 
 # git functions
 function idgaf () { git push --force; }
@@ -108,4 +109,4 @@ REVERSE=$(tput smso)
 UNDERLINE=$(tput smul)
 
 # set the prefix of every prompt
-PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}") \n\[${POWDER_BLUE}\]$(date +%H:%M:%S) \[${GREEN}\]❯\[\033[0;0m\] '
+PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}")\n\[${POWDER_BLUE}\]$(date +%H:%M:%S) \[${GREEN}\]❯\[\033[0;0m\] '
