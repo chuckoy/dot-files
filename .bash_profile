@@ -56,7 +56,10 @@ alias whatip="curl canhazip.com"
 function vb () { vim ~/.bash_profile; }
 function vv () { vim ~/.vimrc; }
 function sb () { source ~/.bash_profile; }
-alias zappashell='docker run -ti -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION -v $(pwd):/var/task  --rm zappa bash'
+function zappashell()
+{
+    docker run -ti -e AWS_PROFILE=$1 -v $(pwd):/var/task -v ~/.aws:/root/.aws --rm zappa bash
+}
 
 # git functions
 function idgaf () { git push --force; }
