@@ -76,6 +76,7 @@ function gcp () { git commit --patch; }
 function gcpc () { git cherry-pick --continue; }
 function grc () { git rebase --continue; }
 function gb () { git branch; }
+function gp () { git pull --ff-only; }
 git_clean_branches ()
 {
     current_branch=$(git name-rev --name-only HEAD)
