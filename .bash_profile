@@ -1,6 +1,6 @@
 # include bash completion from brew git installation
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+  . $(brew --prefix)/etc/bash_completion
 fi
  
 # enable git unstaged indicators - set to a non-empty value
@@ -16,13 +16,12 @@ GIT_PS1_SHOWSTASHSTATE="True"
 GIT_PS1_SHOWUPSTREAM="auto"
 
 # detect virtual env and assign to variable
-if [[ $VIRTUAL_ENV != "" ]]
-    then
-      # Strip out the path and just leave the env name
-      VENV="(${VIRTUAL_ENV##*/})"
+if [[ $VIRTUAL_ENV != "" ]]; then
+  # Strip out the path and just leave the env name
+  VENV="(${VIRTUAL_ENV##*/})"
 else
-      # In case you don't have one activated
-      VENV=''
+  # In case you don't have one activated
+  VENV=''
 fi
 
 # define where virtual envs are being stored (for workon) 
@@ -39,61 +38,15 @@ PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 # makes pip detect an active virtualenv and install to it
 PIP_RESPECT_VIRTUALENV=true
-    if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-        source /usr/local/bin/virtualenvwrapper.sh
-    else
-        echo "WARNING: Can't find virtualenvwrapper.sh"
-    fi
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+  source /usr/local/bin/virtualenvwrapper.sh
+else
+  echo "WARNING: Can't find virtualenvwrapper.sh"
+fi
 
-# Xref env vars
-export PYTHONPATH=~/Work/django-xreflib:~/Work/django-xrefemail
-
-# define aliases
-
-# general aliases
-alias g="python manage.py runserver"
-alias whatip="curl canhazip.com"
-function vb () { vim ~/.bash_profile; }
-function vv () { vim ~/.vimrc; }
-function sb () { source ~/.bash_profile; }
-function zappashell()
-{
-    docker run -ti -e AWS_PROFILE=$1 -v $(pwd):/var/task -v ~/.aws:/root/.aws --rm zappa bash
-}
-
-# git functions
-function idgaf () { git push --force; }
-function up () { git pull --rebase --prune $@ && git submodule update --init --recursive; }
-function gs () { git status; }
-alias gd="git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r"
-alias gl="git log"
-function gri () { git rebase --interactive "$1"; }
-function gt () { git log --graph --oneline --decorate; }
-function ga () { git add $1; }
-function gcam () { git commit --all -m "$1"; }
-function gcm () { git commit -m "$1"; }
-function gcp () { git commit --patch; }
-function gcpc () { git cherry-pick --continue; }
-function grc () { git rebase --continue; }
-function gb () { git branch; }
-function gp () { git pull --ff-only; }
-git_clean_branches ()
-{
-    current_branch=$(git name-rev --name-only HEAD)
-    git pull;
-    git branch --merged ${current_branch} | grep -Ev "\* ${current_branch}|master|test|develop" | xargs -n 1 git branch -d;
-}
-
-# mac convenience aliases
-alias cp="cp -iv"
-alias mv="mv -iv"
-alias finder="open -a Finder ./"
-alias printxrefenv="printenv | grep XREF"
-alias ll='ls -FGlAhp'
-cd() { builtin cd "$@"; ll; }
-
-# xref aliases
-alias publish_xreflib="python setup.py sdist && python setup.py publish && python setup.py tag"
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
 
 # define colors
 BLACK=$(tput setaf 0)
