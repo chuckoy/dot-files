@@ -2,6 +2,7 @@
 *
 
 # don't ignore these files
-!.gitignore
+!.bash_aliases
 !.bash_profile
+!.gitignore
 !.vimrc
