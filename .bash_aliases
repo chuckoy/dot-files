@@ -21,6 +21,7 @@ alias gl="git log"
 function gri () { git rebase --interactive "$1"; }
 function gt () { git log --graph --oneline --decorate; }
 function ga () { git add $1; }
+function gca () { git commit --all; }
 function gcam () { git commit --all -m "$1"; }
 function gcm () { git commit -m "$1"; }
 function gcp () { git commit --patch; }
