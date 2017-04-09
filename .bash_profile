@@ -48,6 +48,10 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_secrets ]; then
+  . ~/.bash_secrets
+fi
+
 # define colors
 BLACK=$(tput setaf 0)
 RED=$(tput setaf 1)
