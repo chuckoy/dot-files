@@ -41,7 +41,7 @@ git_clean_branches ()
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias finder="open -a Finder ./"
-alias printxrefenv="printenv | grep XREF"
+alias printxrefenv="printenv | grep 'XREF\|REDSHIFT'"
 alias ll='ls -FGlAhp'
 cd() { builtin cd "$@"; ll; }
 ########## END MAC CONVENIENCE ALIASES
