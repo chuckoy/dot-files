@@ -44,10 +44,15 @@ else
   echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
 
+# disable XON/XOFF for reverse-reverse-i-search
+stty -ixon
+
+# load bash_aliases, if it exists
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+# load bash_secrets, if it exists
 if [ -f ~/.bash_secrets ]; then
   . ~/.bash_secrets
 fi
