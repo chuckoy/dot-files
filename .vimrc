@@ -34,3 +34,6 @@ set ruler " ruler at bottom for row column position
 syntax on " syntax highlighting on
 set cul " underline current line
 set fileformat=unix " carriage returns are annoying
+
+" allow searching over visually selected text
+vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
