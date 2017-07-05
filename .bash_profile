@@ -47,6 +47,9 @@ fi
 # disable XON/XOFF for reverse-reverse-i-search
 stty -ixon
 
+# infinite bash history
+export HISTSIZE="INFINITE"
+
 # load bash_aliases, if it exists
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
