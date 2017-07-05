@@ -77,5 +77,13 @@ BLINK=$(tput blink)
 REVERSE=$(tput smso)
 UNDERLINE=$(tput smul)
 
+prompt_command () {
+  if [ "$DANGER_FLAG" == "True" ]; then
+    echo "${RED}YOU ARE RUNNING A SESSION WITH DANGEROUS ENVIRONMENT VARIABLES. PLEASE RESET YOUR ENV VARS IF THIS WAS NOT INTENTIONAL"
+  fi
+
+  export PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s} ")\n\[${POWDER_BLUE}\]$(date +%H:%M:%S) \[${GREEN}\]❯ \[\033[0;0m\]'
+}
+
 # set the prefix of every prompt
-PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s}")\n\[${POWDER_BLUE}\]$(date +%H:%M:%S) \[${GREEN}\]❯\[\033[0;0m\] '
+PROMPT_COMMAND=prompt_command
