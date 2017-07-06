@@ -15,15 +15,6 @@ GIT_PS1_SHOWSTASHSTATE="True"
 # enable showing of HEAD vs its upstream
 GIT_PS1_SHOWUPSTREAM="auto"
 
-# detect virtual env and assign to variable
-if [[ $VIRTUAL_ENV != "" ]]; then
-  # Strip out the path and just leave the env name
-  VENV="(${VIRTUAL_ENV##*/})"
-else
-  # In case you don't have one activated
-  VENV=''
-fi
-
 # define where virtual envs are being stored (for workon) 
 WORKON_HOME=$HOME/.virtualenvs
 
@@ -80,6 +71,15 @@ UNDERLINE=$(tput smul)
 prompt_command () {
   if [ "$DANGER_FLAG" == "True" ]; then
     echo "${RED}YOU ARE RUNNING A SESSION WITH DANGEROUS ENVIRONMENT VARIABLES. PLEASE RESET YOUR ENV VARS IF THIS WAS NOT INTENTIONAL"
+  fi
+
+  # detect virtual env and assign to variable
+  if [[ $VIRTUAL_ENV != "" ]]; then
+    # Strip out the path and just leave the env name
+    VENV="(${VIRTUAL_ENV##*/})"
+  else
+    # In case you don't have one activated
+    VENV=''
   fi
 
   export PS1='\[${MAGENTA}\]${VENV} \[${YELLOW}\]\w\[${CYAN}\]$(__git_ps1 " {%s} ")\n\[${POWDER_BLUE}\]$(date +%H:%M:%S) \[${GREEN}\]❯ \[\033[0;0m\]'
