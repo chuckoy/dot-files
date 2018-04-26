@@ -1,6 +1,7 @@
 ########## GENERAL ALIASES
 alias g="python manage.py runserver"
 alias whatip="curl canhazip.com"
+alias repos="cd ~/Work"
 function va () { vim ~/.bash_aliases; }
 function sa () { source ~/.bash_aliases; }
 function vb () { vim ~/.bash_profile; }
