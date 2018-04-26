@@ -9,7 +9,7 @@ function sb () { source ~/.bash_profile; }
 function vv () { vim ~/.vimrc; }
 function zappashell()
 {
-    docker run -ti -e AWS_PROFILE=$1 -v $(pwd):/var/task -v ~/.aws:/root/.aws --rm zappa bash
+    docker run -ti -e AWS_PROFILE=$1 -v $(pwd):/var/task -v ~/.aws:/root/.aws --rm danielwhatmuff/zappa bash
 }
 ########## END GENERAL ALIASES
 
