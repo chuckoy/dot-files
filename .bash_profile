@@ -1,6 +1,7 @@
 # include bash completion from brew git installation
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ -d $(brew --prefix)/etc/bash_completion.d ]; then
+  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+  . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 fi
  
 # enable git unstaged indicators - set to a non-empty value
