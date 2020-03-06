@@ -15,3 +15,9 @@
 !.config/
 !.config/nvim/
 !.config/nvim/*
+
+!bash
+!bash/*
+
+!vim
+!vim/*
