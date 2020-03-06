@@ -21,8 +21,9 @@ alias gd="git diff --color | sed -E 's/^([^-+ ]*)[-+ ]/\\1/' | less -r"
 alias gl="git log"
 function gri () { git rebase --interactive "$1"; }
 function gt () { git log --graph --oneline --decorate; }
+function gta () { git log --all --graph --oneline --decorate; }
 function ga () { git add $1; }
-function gca () { git commit --all; }
+function gca () { git commit --all --amend; }
 function gcam () { git commit --all -m "$1"; }
 function gcm () { git commit -m "$1"; }
 function gcp () { git commit --patch; }

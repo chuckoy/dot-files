@@ -86,3 +86,6 @@ prompt_command () {
 
 # set the prefix of every prompt
 PROMPT_COMMAND=prompt_command
+
+# Set mac max open files to reasonable amount
+ulimit -n 2048
