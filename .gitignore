@@ -8,4 +8,10 @@
 !.vimrc
 !iterm_chuck.json
 !install.sh
+
 !install/
+!install/*
+
+!.config/
+!.config/nvim/
+!.config/nvim/*
