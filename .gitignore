@@ -7,3 +7,5 @@
 !.gitignore
 !.vimrc
 !iterm_chuck.json
+!install.sh
+!install/
