@@ -3,3 +3,7 @@
 	email = chucklogan.lim@gmail.com
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
+[init]
+	defaultBranch = master
+[pull]
+	rebase = false
