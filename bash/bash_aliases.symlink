@@ -37,13 +37,19 @@ git_clean_branches ()
     git pull;
     git branch --merged ${current_branch} | grep -Ev "\* ${current_branch}|master|test|develop" | xargs -n 1 git branch -d;
 }
+grm ()
+{
+    git checkout master;
+    git_clean_branches;
+    git checkout -;
+    git rebase -;
+}
 ########## END GIT FUNCTIONS
 
 ########## MAC CONVENIENCE ALIASES
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias finder="open -a Finder ./"
-alias printxrefenv="printenv | grep 'XREF\|REDSHIFT\|PYTHONPATH'"
 alias ll='ls -FGlAhp'
 cd() { builtin cd "$@"; ll; }
 ########## END MAC CONVENIENCE ALIASES
