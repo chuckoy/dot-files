@@ -17,6 +17,7 @@ brew install node
 brew install python
 brew install vim
 brew install neovim
+brew install nvm
 
 echo "👺 Installing nice casks..."
 brew cask install firefox
