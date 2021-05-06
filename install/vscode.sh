@@ -6,7 +6,7 @@ echo "👾 Installing/Updating VS Code extensions..."
 
 vscodeext="$DF/vscode/extensions"
 
-while read ext || [[ -n $ext ]];
+while IFS= read -r ext; do
   echo "👾 Installing $ext..."
-  do code --install-extension "$ext" --force
-done < $vscodeext
+  code --install-extension "$ext" --force
+done < "$vscodeext"
