@@ -19,8 +19,16 @@ defaults write com.apple.dock orientation -string bottom
 echo "🍎 Dock: adjust tile size"
 defaults write com.apple.dock tilesize -int 42
 
-echo "🍎 Dock:Wipe all (default) app icons"
+echo "🍎 Dock: wipe all (default) app icons"
 defaults write com.apple.dock persistent-apps -array
+
+echo "🍎 Dock: add default app icons"
+defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Firefox.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>";
+defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Visual%20Studio%20Code.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>";
+defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Slack.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>";
+defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/iTerm.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>";
+defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Authy%20Desktop.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>";
+defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Discord.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>";
 
 echo "🍎 iTerm2: specify the preferences directory"
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dot-files/iterm2"
