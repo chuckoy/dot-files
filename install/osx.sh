@@ -19,11 +19,20 @@ defaults write com.apple.dock orientation -string bottom
 echo "🍎 Dock: adjust tile size"
 defaults write com.apple.dock tilesize -int 42
 
-echo "iTerm2: specify the preferences directory"
+echo "🍎 Dock:Wipe all (default) app icons"
+defaults write com.apple.dock persistent-apps -array
+
+echo "🍎 iTerm2: specify the preferences directory"
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dot-files/iterm2"
 
-echo "iTerm2: use the custom preferences in the directory"
+echo "🍎 iTerm2: use the custom preferences in the directory"
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+echo "🍎 Trackpad: set to correct scrolling direction"
+defaults write com.apple.swipescrolldirection -bool false
+
+echo "🍎 Language: show languages on menu bar"
+sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
 
 echo "☠️  Killing affected applications ☠️ "
 for app in Finder Dock SystemUIServer; do killall "$app" >/dev/null 2>&1; done
