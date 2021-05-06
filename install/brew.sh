@@ -20,6 +20,7 @@ brew install neovim
 brew install nvm
 
 echo "👺 Installing nice casks..."
+brew cask install visual-studio-code
 brew cask install firefox
 brew cask install iterm2
 brew cask install slack
