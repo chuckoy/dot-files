@@ -20,13 +20,13 @@ brew install neovim
 brew install nvm
 
 echo "👺 Installing nice casks..."
-brew cask install visual-studio-code
-brew cask install firefox
-brew cask install iterm2
-brew cask install slack
-brew cask install spotify
-brew cask install docker
-brew cask install 1password
+brew install --cask visual-studio-code
+brew install --cask firefox
+brew install --cask iterm2
+brew install --cask slack
+brew install --cask spotify
+brew install --cask docker
+brew install --cask 1password
 
 echo "👺 Cleanup..."
 brew cleanup
