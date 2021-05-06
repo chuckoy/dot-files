@@ -28,6 +28,8 @@ brew install --cask spotify             # music client
 brew install --cask docker              # *nix containers
 brew install --cask 1password           # password manager
 brew install --cask wombat              # gRPC GUI client
+brew install --cask karabiner-elements  # Keyboard customiser
+brew install --cask viscosity           # VPN client
 
 echo "👺 Cleanup..."
 brew cleanup
