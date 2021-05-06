@@ -3,7 +3,7 @@
 if ! [ -x "$(command -v brew)" ]
 then
   echo "👺 Homebrew installing..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   echo "👺 Homebrew installed! Updating..."
   brew update
