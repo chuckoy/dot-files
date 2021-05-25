@@ -30,6 +30,9 @@ defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</
 defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Authy Desktop.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>";
 defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Discord.app/</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>";
 
+echo "🍎 Dock: Don't show recent applications"
+defaults write com.apple.dock recent-apps -array
+
 echo "🍎 iTerm2: specify the preferences directory"
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dot-files/iterm2"
 
@@ -41,6 +44,9 @@ defaults write com.apple.swipescrolldirection -bool false
 
 echo "🍎 Language: show languages on menu bar"
 sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
+
+echo "🍎 Keyboard: allow press and hold key repeat (not accent marks)"
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 echo "☠️  Killing affected applications ☠️ "
 for app in Finder Dock SystemUIServer; do killall "$app" >/dev/null 2>&1; done
