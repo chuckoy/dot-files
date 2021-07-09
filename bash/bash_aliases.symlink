@@ -44,6 +44,12 @@ grm ()
     git checkout -;
     git rebase -;
 }
+function gcnb ()
+{
+  git checkout master;
+  git_clean_branches;
+  git checkout -b "$1";
+}
 ########## END GIT FUNCTIONS
 
 ########## MAC CONVENIENCE ALIASES
