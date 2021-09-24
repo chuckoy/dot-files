@@ -39,16 +39,11 @@ git_clean_branches ()
 }
 grm ()
 {
-    git checkout master;
-    git_clean_branches;
-    git checkout -;
-    git rebase -;
+    git checkout master && git_clean_branches && git checkout - && git rebase -;
 }
 function gcnb ()
 {
-  git checkout master;
-  git_clean_branches;
-  git checkout -b "$1";
+  git checkout master && git_clean_branches && git checkout -b "$1";
 }
 ########## END GIT FUNCTIONS
 
