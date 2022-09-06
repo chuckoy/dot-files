@@ -34,16 +34,22 @@ function gp () { git pull --ff-only; }
 git_clean_branches ()
 {
     current_branch=$(git name-rev --name-only HEAD)
-    git pull;
-    git branch --merged ${current_branch} | grep -Ev "\* ${current_branch}|master|test|develop" | xargs -n 1 git branch -d;
+    git pull && \
+    git branch --merged ${current_branch} | \
+      grep -Ev "\* ${current_branch}|${git_main_branch}" | \
+      xargs -n 1 git branch -d;
 }
 grm ()
 {
-    git checkout master && git_clean_branches && git checkout - && git rebase -;
+    git checkout ${git_main_branch} && git_clean_branches && git checkout - && git rebase -;
+}
+git_main_branch ()
+{
+  echo $(git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4)
 }
 function gcnb ()
 {
-  git checkout master && git_clean_branches && git checkout -b "$1";
+  git checkout ${git_main_branch} && git_clean_branches && git checkout -b "$1";
 }
 ########## END GIT FUNCTIONS
 
