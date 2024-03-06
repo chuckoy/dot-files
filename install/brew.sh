@@ -30,6 +30,7 @@ brew install --cask karabiner-elements  # Keyboard customiser
 brew install --cask discord             # you know Discord
 brew install --cask authy               # MFA client
 brew install --cask rocket              # we want the emoji
+brew install --cask rectangle		# nice window manipulation tool
 
 echo "👺 Cleanup..."
 brew cleanup
