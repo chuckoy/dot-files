@@ -17,6 +17,7 @@ brew install node   # Node.js
 brew install vim    # standard vim
 brew install neovim # new vim
 brew install nvm    # Node.js version manager
+brew install gh	    # GitHub CLI
 
 echo "👺 Installing nice casks..."
 brew install --cask firefox             # internet browser
