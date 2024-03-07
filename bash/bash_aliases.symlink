@@ -79,8 +79,6 @@ function pr() {
 		exit 2
 	fi
 
-	echo "pushing to remote..."
-	git push --set-upstream origin "$branch"
 	gh pr create -d -t "[$branch] $title" -B "$mergeDst"
 	gh pr view --web;
 }
