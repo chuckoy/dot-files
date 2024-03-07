@@ -60,3 +60,28 @@ alias finder="open -a Finder ./"
 alias ll='ls -FGlAhp'
 cd() { builtin cd "$@"; ll; }
 ########## END MAC CONVENIENCE ALIASES
+
+########## MAKE A PR TO GITHUB
+function pr() {
+	if [[ $1 == '-v' ]]; then
+		gh pr view --web;
+		return;
+	fi
+
+	local title="this is a generic title, please change it to a better one...."
+	local branch=`git symbolic-ref --short -q HEAD`
+	local mergeDst="$(git_main_branch)"
+	
+	if [[ $1 != '' ]]; then
+		title="$1"
+	else
+		echo "need to provide title as first argument"
+		exit 2
+	fi
+
+	echo "pushing to remote..."
+	git push --set-upstream origin "$branch"
+	gh pr create -d -t "[$branch] $title" -B "$mergeDst"
+	gh pr view --web;
+}
+########## END MAKE A PR TO GITHUB
