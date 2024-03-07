@@ -76,7 +76,7 @@ function pr() {
 		title="$1"
 	else
 		echo "need to provide title as first argument"
-		exit 2
+		return 2
 	fi
 
 	gh pr create -d -t "[$branch] $title" -B "$mergeDst"
