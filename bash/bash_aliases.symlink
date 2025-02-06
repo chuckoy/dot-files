@@ -68,18 +68,40 @@ function pr() {
 		return;
 	fi
 
-	local title="this is a generic title, please change it to a better one...."
+	local title=`git log -1 --oneline --format=%s`
 	local branch=`git symbolic-ref --short -q HEAD`
 	local mergeDst="$(git_main_branch)"
 	
 	if [[ $1 != '' ]]; then
 		title="$1"
-	else
-		echo "need to provide title as first argument"
-		return 2
 	fi
 
 	gh pr create -d -t "[$branch] $title" -B "$mergeDst"
 	gh pr view --web;
 }
 ########## END MAKE A PR TO GITHUB
+
+# review then approve
+function rr() {
+	local go_tmpl='{{.title}}{{.body}}'
+	gh pr view --json title,body --template ${go_tmpl} $(pbpaste)
+	echo "opening PR diff to review..."
+	prd
+
+	echo "Are you sure you want to approve? [yn]"
+	local yn=$(yesno)
+	if [[ $yn =~ ^[Yy]$ ]]; then
+		echo "approving PR: $pbpaste"
+		stamp
+		return;
+	fi
+
+	if [[ $yn =~ ^[Nn]$ ]]; then
+		echo "Do you want to open the PR in web? [yn]"
+		local c=$(yesno)
+	fi
+
+	if [[ $c =~ ^[Yy]$ ]]; then
+		gh pr view --web $(pbpaste)
+	fi
+}

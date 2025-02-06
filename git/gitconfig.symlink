@@ -7,3 +7,18 @@
 	defaultBranch = master
 [pull]
 	rebase = false
+[core]
+	editor = vim
+  pager = delta
+[push]
+	autoSetupRemote = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+	side-by-side = true
+	navigate = true
+	hyperlinks = true
+[merge]
+  conflictstyle = diff3
+[diff]
+	colorMoved = default
